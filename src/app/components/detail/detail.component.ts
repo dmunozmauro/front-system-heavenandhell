@@ -15,7 +15,7 @@ export class DetailComponent implements OnInit {
   public eliquid: Eliquid;
   public url: string;
 
-  public name: string;
+  
 
   constructor(
     private _eliquidService: EliquidServices,
@@ -36,8 +36,8 @@ export class DetailComponent implements OnInit {
   getEliquid(name) {
     this._eliquidService.getProject(name).subscribe(
       res => {
-        this.eliquid.name = res.eliquid.name;
-        console.log(this.eliquid.name);
+        this.eliquid = res.eliquid;
+        console.log(this.eliquid);
       },
       err => {
         console.log('err', err);

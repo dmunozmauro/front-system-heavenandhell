@@ -1,27 +1,58 @@
-<!-- <main role="main">
+<main role="main">
     <div class="album py-5 bg-light">
         <div class="container" *ngIf="eliquid">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="image-eliquid" src="../../../assets/img/{{eliquid.name}}.jpg">
-                        <span *ngIf="eliquid.stock > 0">En stock</span>
-                        <span *ngIf="eliquid.stock == 0">Sin stock</span>
-                        <div class="card-body">
-                            <ul>
-                                <li>{{eliquid.name}}</li>
-                                <li>Formato: {{eliquid.milligrams}}</li>
-                                <li>Potencia:
-                                    <select>
-                                        <option value="{{liquidos.nicotine}}">{{eliquid.nicotine}}</option>
-                                    </select>
-                                </li>
-                                <li>Valor: {{eliquid.price | currency:"CLP"}}</li>
-                            </ul>
+            <div class="row card-eliquid-detail" *ngFor="let liquido of eliquid">
+                <!-- <div class="col-md-4" *ngFor="let liquido of eliquid">
+                    <div class="card mb-4 shadow-sm card-eliquid-detail">
+                        <img class="image-eliquid-detail" src="../../../assets/img/{{liquido.name}}.jpg">
+                        <span *ngIf="liquido.stock > 0">En stock</span>
+                        <span *ngIf="liquido.stock == 0">Sin stock</span>
+
+                        <div class="row">
+
                         </div>
+
+                    </div>
+
+                </div> -->
+
+                <div class="col-md-5">
+                    <div class="col-mb-5">
+                        <img class="image-eliquid-detail" src="../../../assets/img/{{liquido.name}}.jpg">
                     </div>
                 </div>
+
+                <div class="col-md-7">
+                    <div class="col-mb-7">
+                        <ul>
+                            <li>
+                                <h3>{{liquido.name}}</h3>
+                                <span *ngIf="liquido.stock > 0" style="color:green; font-weight: bold">En stock</span>
+                                <span *ngIf="liquido.stock == 0" style="color:red; font-weight: bold">Sin stock</span>
+                            </li>
+                            <!-- <li *ngIf="liquido.stock > 0"><span *ngIf="liquido.stock > 0">En stock</span></li>
+                            <li *ngIf="liquido.stock == 0"><span *ngIf="liquido.stock == 0">Sin stock</span></li> -->
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>
+                                <p><strong>Tipo: </strong>{{liquido.type}}</p>
+                            </li>
+                            <li>
+                                <p><strong>Formato: </strong>{{liquido.ml}} ML</p>
+                            </li>
+                            <li>
+                                <p><strong>Valor: </strong>{{liquido.price | currency: 'CLP'}}</p>
+                            </li>
+                            <li>
+                                <p><strong>Descripción: </strong>{{liquido.description}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
-</main> -->
+</main>

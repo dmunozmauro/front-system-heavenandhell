@@ -26,7 +26,6 @@ export class EliquidsComponent implements OnInit {
     this._eliquidService.getEliquids().subscribe(
       res => {
         this.eliquid = res.eliquid;
-        console.log(this.eliquid);
       }, err => {
         console.log(err);
       }

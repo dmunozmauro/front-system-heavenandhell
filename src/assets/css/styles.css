@@ -1,8 +1,13 @@
+@font-face {
+	font-family: "animals";
+	src: url(fonts/animals.ttf);
+}
+
 .image-eliquid {
-    width: 100%;
-    height: 300px;
-    padding: 10px 10px 10px 10px;
-    overflow: hidden;
+	width: 100%;
+	height: 300px;
+	padding: 10px 10px 10px 10px;
+	overflow: hidden;
 	filter: grayscale(100%);
 	transition: filter 400ms, transform 400ms;
 }
@@ -10,4 +15,35 @@
 .image-eliquid:hover {
 	transform: scale(0.89);
 	filter: grayscale(0%);
+}
+
+.card-eliquid-detail {
+	width: 1200px;
+}
+
+.card-eliquid-detail img {
+	width: 400px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 25px;
+}
+
+.card-eliquid-detail img {
+	width: 400px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 25px;
+}
+
+.card-eliquid-detail ul {
+    list-style:none;
+    margin-top: 100px;
+}
+
+.card-eliquid-detail ul h3 {
+    font-family: animals;
+}
+
+
+.eliquid-main h5 {
+	font-family: animals;
+	text-align: center;
 }
