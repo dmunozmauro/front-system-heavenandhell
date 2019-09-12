@@ -1,0 +1,21 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Líquidos</h1>
+</div>
+
+<main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container" *ngIf="eliquid">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let liquidos of eliquid">
+                    <div class="card mb-4 shadow-sm">
+                        <a [routerLink]="['/detalle', liquidos.name]"><img class="image-eliquid"
+                                src="../../../assets/img/{{liquidos.name}}.jpg"></a>
+                        <div class="card-body">
+                            <h3 class="card-text">{{liquidos.name}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
