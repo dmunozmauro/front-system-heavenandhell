@@ -1,4 +1,4 @@
-<main role="main" *ngIf="eliquid">
+<main role="main" *ngIf="eliquid && level">
     <div class="album py-5 bg-light">
         <div class="container" *ngFor="let liquido of eliquid">
             <div class="row card-eliquid-detail">
@@ -7,11 +7,14 @@
                         <img class="image-eliquid-detail" src="../../../assets/img/{{liquido.name}}.jpg">
                     </div>
                 </div>
+                <p>
 
+                </p>
                 <div class="col-md-7">
                     <div class="col-mb-7">
                         <ul>
                             <li>
+                                <span *ngFor="let item of level; let i = index;">{{item.type}} </span>
                                 <h3>{{liquido.name}}</h3>
                                 <span *ngIf="liquido.stock > 0" style="color:green; font-weight: bold">En stock</span>
                                 <span *ngIf="liquido.stock == 0" style="color:red; font-weight: bold">Sin stock</span>
@@ -21,7 +24,7 @@
                             <li></li>
                             <li></li>
                             <li>
-                                <p><strong>Tipo: </strong>{{liquido.type}}</p>
+                                <p><strong>Tipo: </strong>{{level.type}}</p>
                             </li>
                             <li>
                                 <p><strong>Formato: </strong>{{liquido.ml}} ML</p>
@@ -31,10 +34,11 @@
                             </li>
                             <li>
                                 <p><strong>Nicotina:</strong>
-                                    <select>
-                                        <option value="0n">0 N</option>
-                                        <option value="3n">3 N</option>
-                                        <option value="6n">6 N</option>
+                                    <select (change)="getLevel(liquido._id)"
+                                        [(ngModel)]="gerenteSeleccionado">
+                                        
+                                        <option aria-placeholder="Seleccione" *ngFor="let gerente of level; trackBy: index"
+                                            [ngValue]="gerente.nicotine">{{gerente.nicotine}}</option>
                                     </select>
                                 </p>
                             </li>
