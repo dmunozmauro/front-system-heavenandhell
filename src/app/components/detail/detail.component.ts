@@ -15,14 +15,11 @@ export class DetailComponent implements OnInit {
   public eliquid: Eliquid;
   public url: string;
 
-  
-
   constructor(
     private _eliquidService: EliquidServices,
     private _router: Router,
     private _route: ActivatedRoute) {
     this.url = Global.url;
-    this.eliquid = new Eliquid('', '', 0, '', 0, 0);
   }
 
   ngOnInit() {
@@ -37,7 +34,7 @@ export class DetailComponent implements OnInit {
     this._eliquidService.getProject(name).subscribe(
       res => {
         this.eliquid = res.eliquid;
-        console.log(this.eliquid);
+        console.log(res.eliquid);
       },
       err => {
         console.log('err', err);

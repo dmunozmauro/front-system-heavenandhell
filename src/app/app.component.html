@@ -1,17 +1,52 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" [routerLink]="['/home']">Heaven and Hell</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-now">
+  <a class="navbar-brand" [routerLink]="['/home']">
+    <img class="mb-2 image-nav" src="../assets/img/logo-transparent.png">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
-      <a class="nav-item nav-link" [routerLink]="['/liquidos']">Líquidos</a>
+      <a class="nav-item nav-link" [routerLink]="['/liquidos']">Liquidos</a>
       <a class="nav-item nav-link" [routerLink]="['/nosotros']">Nosotros</a>
-      
-      <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
     </div>
   </div>
 </nav>
+
+
 <router-outlet></router-outlet>
+
+
+<!-- <footer class="" style="background-color: black; margin-bottom: 0px; color: white">
+  <div class="row">
+    <div class="col-12 col-md">
+      <img class="mb-2" src="../assets/img/logo-transparent.png">
+      <small class="d-block mb-3 text-muted">Heaven & Hell &copy; 2017-2019</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Social</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#"><i class="fas fa-allergies">Abcde</i></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Resource</a></li>
+        <li><a class="text-muted" href="#">Resource name</a></li>
+        <li><a class="text-muted" href="#">Another resource</a></li>
+        <li><a class="text-muted" href="#">Final resource</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>About</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Team</a></li>
+        <li><a class="text-muted" href="#">Locations</a></li>
+        <li><a class="text-muted" href="#">Privacy</a></li>
+        <li><a class="text-muted" href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer> -->

@@ -1,21 +1,7 @@
-<main role="main">
+<main role="main" *ngIf="eliquid">
     <div class="album py-5 bg-light">
-        <div class="container" *ngIf="eliquid">
-            <div class="row card-eliquid-detail" *ngFor="let liquido of eliquid">
-                <!-- <div class="col-md-4" *ngFor="let liquido of eliquid">
-                    <div class="card mb-4 shadow-sm card-eliquid-detail">
-                        <img class="image-eliquid-detail" src="../../../assets/img/{{liquido.name}}.jpg">
-                        <span *ngIf="liquido.stock > 0">En stock</span>
-                        <span *ngIf="liquido.stock == 0">Sin stock</span>
-
-                        <div class="row">
-
-                        </div>
-
-                    </div>
-
-                </div> -->
-
+        <div class="container" *ngFor="let liquido of eliquid">
+            <div class="row card-eliquid-detail">
                 <div class="col-md-5">
                     <div class="col-mb-5">
                         <img class="image-eliquid-detail" src="../../../assets/img/{{liquido.name}}.jpg">
@@ -30,8 +16,7 @@
                                 <span *ngIf="liquido.stock > 0" style="color:green; font-weight: bold">En stock</span>
                                 <span *ngIf="liquido.stock == 0" style="color:red; font-weight: bold">Sin stock</span>
                             </li>
-                            <!-- <li *ngIf="liquido.stock > 0"><span *ngIf="liquido.stock > 0">En stock</span></li>
-                            <li *ngIf="liquido.stock == 0"><span *ngIf="liquido.stock == 0">Sin stock</span></li> -->
+
                             <li></li>
                             <li></li>
                             <li></li>
@@ -45,13 +30,20 @@
                                 <p><strong>Valor: </strong>{{liquido.price | currency: 'CLP'}}</p>
                             </li>
                             <li>
+                                <p><strong>Nicotina:</strong>
+                                    <select>
+                                        <option value="0n">0 N</option>
+                                        <option value="3n">3 N</option>
+                                        <option value="6n">6 N</option>
+                                    </select>
+                                </p>
+                            </li>
+                            <li>
                                 <p><strong>Descripción: </strong>{{liquido.description}}</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
