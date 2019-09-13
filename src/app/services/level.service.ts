@@ -21,4 +21,9 @@ export class LevelServices {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url + 'level/' + id, { headers: headers });
     }
+
+    getStock(nicotine): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(this.url + 'stock/' + nicotine, { headers: headers });
+    }
 }

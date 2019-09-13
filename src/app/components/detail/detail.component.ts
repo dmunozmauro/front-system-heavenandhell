@@ -16,6 +16,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class DetailComponent implements OnInit {
   public eliquid: Eliquid;
   public level: Level;
+  public stock: string;
   public url: string;
   public id_eliquid: string;
 
@@ -36,7 +37,7 @@ export class DetailComponent implements OnInit {
   }
 
   getEliquid(name) {
-    this._eliquidService.getProject(name).subscribe(
+    this._eliquidService.getEliquidByName(name).subscribe(
       res => {
         this.eliquid = res.eliquid;
         for (var i = 0; i < res.eliquid.length; i++) {
@@ -60,5 +61,17 @@ export class DetailComponent implements OnInit {
         console.log('err', err);
       }
     );
+  }
+
+  getStock(nicotine) {
+    this._levelService.getStock(nicotine).subscribe(
+      res => {
+        this.stock = res.level;
+        console.log(this.stock);
+      },
+      err => {
+        console.log('err', err);
+      }
+    )
   }
 }

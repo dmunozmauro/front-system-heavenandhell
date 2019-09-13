@@ -28,9 +28,9 @@ export class EliquidServices {
         return this._http.get(this.url + 'data-eliquids', { headers: headers });
     }
 
-    getProject(id): Observable<any> {
+    getEliquidByName(name): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url + 'eliquid/' + id, { headers: headers });
+        return this._http.get(this.url + 'eliquid/' + name, { headers: headers });
     }
 
     /* deleteProject(id): Observable<any> {

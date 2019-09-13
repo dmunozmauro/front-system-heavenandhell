@@ -14,17 +14,15 @@
                     <div class="col-mb-7">
                         <ul>
                             <li>
-                                <span *ngFor="let item of level; let i = index;">{{item.type}} </span>
                                 <h3>{{liquido.name}}</h3>
-                                <span *ngIf="liquido.stock > 0" style="color:green; font-weight: bold">En stock</span>
-                                <span *ngIf="liquido.stock == 0" style="color:red; font-weight: bold">Sin stock</span>
-                            </li>
+                                <span>{{liquido.description}}</span>
 
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                                <!-- <span *ngIf="liquido.stock > 0" style="color:green; font-weight: bold">En stock</span>
+                                <span *ngIf="liquido.stock == 0" style="color:red; font-weight: bold">Sin stock</span> -->
+                            </li>
+                            <br>
                             <li>
-                                <p><strong>Tipo: </strong>{{level.type}}</p>
+                                <p><strong>Tipo: </strong>{{liquido.type}}</p>
                             </li>
                             <li>
                                 <p><strong>Formato: </strong>{{liquido.ml}} ML</p>
@@ -34,16 +32,18 @@
                             </li>
                             <li>
                                 <p><strong>Nicotina:</strong>
-                                    <select (change)="getLevel(liquido._id)"
-                                        [(ngModel)]="gerenteSeleccionado">
-                                        
-                                        <option aria-placeholder="Seleccione" *ngFor="let gerente of level; trackBy: index"
-                                            [ngValue]="gerente.nicotine">{{gerente.nicotine}}</option>
+                                    <select (change)="getStock(liquido._id)" [(ngModel)]="nicotinaSeleccionada">
+
+                                        <option aria-placeholder="Seleccione" *ngFor="let data of level"
+                                            [ngValue]="data.nicotine">{{data.nicotine}}</option>
                                     </select>
                                 </p>
                             </li>
-                            <li>
-                                <p><strong>Descripción: </strong>{{liquido.description}}</p>
+                            <li *ngFor="let data of level">
+                                Stock: 
+                               <span *ngIf="data.nicotine == '0 N'">{{data.stock}}</span>
+                               <span *ngIf="data.nicotine == '3 N'">{{data.stock}}</span>
+                               <span *ngIf="data.nicotine == '6 N'">{{data.stock}}</span>
                             </li>
                         </ul>
                     </div>
