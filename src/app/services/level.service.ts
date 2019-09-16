@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Level } from '../models/level';
 import { Global } from './global';
 @Injectable()
 export class LevelServices {
@@ -17,12 +16,12 @@ export class LevelServices {
         return 'probando servicio angular';
     }
 
-    getLevel(id): Observable<any> {
+    getLevel(id: string): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url + 'level/' + id, { headers: headers });
     }
 
-    getStock(nicotine, id): Observable<any> {
+    getStock(nicotine: string, id: string): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url + 'stock/' + nicotine + "/" + id, { headers: headers });
     }
