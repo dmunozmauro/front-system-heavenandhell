@@ -55,7 +55,6 @@ export class DetailComponent implements OnInit {
     this._levelService.getLevel(id).subscribe(
       res => {
         this.level = res.level;
-        console.log(this.level);
       },
       err => {
         console.log('err', err);
@@ -63,10 +62,11 @@ export class DetailComponent implements OnInit {
     );
   }
 
-  getStock(nicotine) {
-    this._levelService.getStock(nicotine).subscribe(
-      res => {
-        this.stock = res.level;
+  getStock(nicotine, id) {
+    console.log('id', this.id_eliquid);
+    this._levelService.getStock(nicotine, this.id_eliquid).subscribe(
+      res => { 
+        this.stock = res.stock;
         console.log(this.stock);
       },
       err => {

@@ -15,36 +15,42 @@
                         <ul>
                             <li>
                                 <h3>{{liquido.name}}</h3>
-                                <span>{{liquido.description}}</span>
-
-                                <!-- <span *ngIf="liquido.stock > 0" style="color:green; font-weight: bold">En stock</span>
-                                <span *ngIf="liquido.stock == 0" style="color:red; font-weight: bold">Sin stock</span> -->
+                                <span><strong><i>{{liquido.description}}</i></strong></span>
                             </li>
                             <br>
                             <li>
                                 <p><strong>Tipo: </strong>{{liquido.type}}</p>
                             </li>
                             <li>
-                                <p><strong>Formato: </strong>{{liquido.ml}} ML</p>
+                                <p><strong>Formato: </strong>{{liquido.ml}}</p>
                             </li>
                             <li>
                                 <p><strong>Valor: </strong>{{liquido.price | currency: 'CLP'}}</p>
                             </li>
                             <li>
                                 <p><strong>Nicotina:</strong>
-                                    <select (change)="getStock(liquido._id)" [(ngModel)]="nicotinaSeleccionada">
-
-                                        <option aria-placeholder="Seleccione" *ngFor="let data of level"
-                                            [ngValue]="data.nicotine">{{data.nicotine}}</option>
+                                    <select (change)="getStock(nicotina)" [(ngModel)]="nicotina">
+                                        <!-- <option value="0" selected="selected">Selecciona</option> -->
+                                        <option *ngFor="let data of level" value="{{data.nicotine}}">{{data.nicotine}}
+                                        </option>
                                     </select>
                                 </p>
                             </li>
-                            <li *ngFor="let data of level">
-                                Stock: 
-                               <span *ngIf="data.nicotine == '0 N'">{{data.stock}}</span>
-                               <span *ngIf="data.nicotine == '3 N'">{{data.stock}}</span>
-                               <span *ngIf="data.nicotine == '6 N'">{{data.stock}}</span>
+                            <li>
+                                <p *ngFor="let disponible of stock"><strong>Stock: </strong>
+                                    <span *ngIf="disponible.stock > 0" style="color:green; font-weight: bold">En
+                                        stock</span>
+                                    <span *ngIf="disponible.stock == 0" style="color:red; font-weight: bold">Sin
+                                        stock</span>
+                                    <br>
+                                    <span style="color: gray;font-size: 12px;"><i>Cantidad:
+                                            {{disponible.stock}}</i></span>
+                                    <br>
+                                    <button *ngIf="disponible.stock > 0">Agregar</button>
+                                </p>
+
                             </li>
+
                         </ul>
                     </div>
                 </div>
