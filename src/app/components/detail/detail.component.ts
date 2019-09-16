@@ -19,6 +19,7 @@ export class DetailComponent implements OnInit {
   public stock: string;
   public url: string;
   public id_eliquid: string;
+  public arreglo: any[];
 
   constructor(
     private _eliquidService: EliquidServices,
@@ -63,15 +64,20 @@ export class DetailComponent implements OnInit {
   }
 
   getStock(nicotine, id) {
-    console.log('id', this.id_eliquid);
     this._levelService.getStock(nicotine, this.id_eliquid).subscribe(
       res => { 
         this.stock = res.stock;
-        console.log(this.stock);
       },
       err => {
         console.log('err', err);
       }
     )
+  }
+
+  onSubmit(form) {
+    /* this.arreglo.push(form); */
+    console.log('arreglo', this.arreglo);
+    console.log('el formulario', form.nicotine);
+
   }
 }

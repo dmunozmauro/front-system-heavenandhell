@@ -2,6 +2,7 @@
 	font-family: "animals";
 	src: url(fonts/animals.ttf);
 }
+
 .navbar a {
 	font-family: animals;
 }
@@ -9,6 +10,7 @@
 .bg-dark-now {
 	background-color: black !important;
 }
+
 .image-nav {
 	width: 150px;
 	transition: transform 400ms;
@@ -53,9 +55,9 @@
 	margin-top: 100px;
 }
 
-.card-eliquid-detail ul h3 {
+/* .card-eliquid-detail ul h3 {
 	font-family: animals;
-}
+} */
 
 .eliquid-main h5 {
 	font-family: animals;
@@ -79,4 +81,28 @@ footer img {
 	text-align: center;
 	background-color: #f8f1ff !important;
 	height: 700px;
+}
+
+.form-center {
+	display: flex;
+	align-items: center;
+}
+
+form {
+	width: 380px;
+}
+
+form h3 {
+	font-family: animals;
+}
+
+.edit-input {
+	border: 0;
+	color: black;
+	background: transparent;
+}
+
+.name-input {
+	font-size: 28px;
+    font-family: animals;
 }

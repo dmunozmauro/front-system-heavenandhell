@@ -7,51 +7,58 @@
                         <img class="image-eliquid-detail" src="../../../assets/img/{{liquido.name}}.jpg">
                     </div>
                 </div>
-                <p>
 
-                </p>
-                <div class="col-md-7">
+                <div class="col-md-7 form-center">
                     <div class="col-mb-7">
-                        <ul>
-                            <li>
-                                <h3>{{liquido.name}}</h3>
-                                <span><strong><i>{{liquido.description}}</i></strong></span>
-                            </li>
-                            <br>
-                            <li>
-                                <p><strong>Tipo: </strong>{{liquido.type}}</p>
-                            </li>
-                            <li>
-                                <p><strong>Formato: </strong>{{liquido.ml}}</p>
-                            </li>
-                            <li>
-                                <p><strong>Valor: </strong>{{liquido.price | currency: 'CLP'}}</p>
-                            </li>
-                            <li>
-                                <p><strong>Nicotina:</strong>
-                                    <select (change)="getStock(nicotina)" [(ngModel)]="nicotina">
-                                        <!-- <option value="0" selected="selected">Selecciona</option> -->
-                                        <option *ngFor="let data of level" value="{{data.nicotine}}">{{data.nicotine}}
-                                        </option>
-                                    </select>
-                                </p>
-                            </li>
-                            <li>
-                                <p *ngFor="let disponible of stock"><strong>Stock: </strong>
-                                    <span *ngIf="disponible.stock > 0" style="color:green; font-weight: bold">En
-                                        stock</span>
-                                    <span *ngIf="disponible.stock == 0" style="color:red; font-weight: bold">Sin
-                                        stock</span>
-                                    <br>
-                                    <span style="color: gray;font-size: 12px;"><i>Cantidad:
-                                            {{disponible.stock}}</i></span>
-                                    <br>
-                                    <button *ngIf="disponible.stock > 0">Agregar</button>
-                                </p>
+                        <form #formDetail="ngForm" (ngSubmit)="onSubmit(formDetail)">
+                            <p>
+                                <input class="edit-input name-input" type="text" name="nombre" #nombre="ngModel"
+                                    value="{{liquido.name}}" [(ngModel)]="liquido.name">
+                            </p>
 
-                            </li>
+                            <p>
+                                <label for="description"><strong>Descripción: </strong></label>
+                                {{liquido.description}}
+                            </p>
 
-                        </ul>
+                            <p>
+                                <label for="type"><strong>Tipo: </strong></label>
+                                {{liquido.type}}
+                            </p>
+
+                            <p>
+                                <label for="miligrams"><strong>Formato:</strong> </label>
+                                <input class="edit-input" type="text" name="formato" #formato="ngModel"
+                                    value="{{liquido.ml}}" [(ngModel)]="liquido.ml">
+                            </p>
+
+                            <p>
+                                <label for="price"><strong>Valor: </strong></label>
+                                <input class="edit-input" type="text" name="precio" #precio="ngModel"
+                                    value="{{liquido.price}}" [(ngModel)]="liquido.price">
+                            </p>
+
+                            <p><label for="nicotine"><strong>Nicotina:</strong></label>
+                                <select name="nicotine" #nicotine="ngModel" (change)="getStock(nicotina)"
+                                    [(ngModel)]="nicotina" required>
+                                    <option *ngFor="let data of level" value="{{data.nicotine}}">{{data.nicotine}}
+                                    </option>
+                                </select>
+                            </p>
+
+                            <p *ngFor="let disponible of stock"><strong>Stock: </strong>
+                                <span *ngIf="disponible.stock > 0" style="color:green; font-weight: bold">En
+                                    stock</span>
+                                <span *ngIf="disponible.stock == 0" style="color:red; font-weight: bold">Sin
+                                    stock</span>
+                                <br>
+                                <span style="color: gray;font-size: 12px;"><i>Cantidad:
+                                        {{disponible.stock}}</i></span>
+                                <br>
+                                <button type="submit" *ngIf="disponible.stock > 0">Agregar</button>
+                            </p>
+
+                        </form>
                     </div>
                 </div>
             </div>
